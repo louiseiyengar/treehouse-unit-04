@@ -2,10 +2,10 @@ class Books {
     constructor () {
         this.list = [
             {author: "Charles Dickens",
-            book: "Bleak House"},
+            book: "David Copperfield"},
         
             {author: "F. Scott Fitzgerald",
-            book: "Tender Is The Night"},
+            book: "The Great Gatsby"},
         
             {author: "Truman Capote",
              book: "In Cold Blood"},
@@ -14,7 +14,7 @@ class Books {
             book: "The Adventures of Huckleberry Finn"},
         
             {author: "Jane Austen",
-            book: "Sense and Sensibility"},
+            book: "Pride and Prejudice"},
         
             {author: "Miguel de Cervantes",
             book: "Don Quixote"},
@@ -35,7 +35,7 @@ class Books {
              book: "Things Fall Apart"},
         
             {author: "Charles Dickens",
-            book: "The Old Curiosity Shop"},
+            book: "A Tale of Two Cities"},
         
             {author: "Mark Twain",
             book: "Life On The Mississippi"},
@@ -44,10 +44,10 @@ class Books {
             book: "The Importance of Being Ernest"},
             
             {author: "William Shakespeare",
-            book: "Much Ado About Nothing"},
+            book: "Romeo and Juliet"},
         
             {author: "William Shakespeare",
-            book: "Twelfth Night"},
+            book: "The Merchant of Venice"},
         
             {author: "Arthur Conan Doyle",
             book: "The Hound of the Baskervilles"},

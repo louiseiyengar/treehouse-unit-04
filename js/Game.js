@@ -14,21 +14,23 @@
      */
     startGame() {
         this.activePhrase = null;
+
         const phraseUL = document.querySelector("#phrase ul");
-        console.log(phraseUL.firstChild);
         while (phraseUL.firstChild) {
             phraseUL.removeChild(phraseUL.firstChild);
         } 
-        const keys = document.getElementsByClassName('key');
-        for (let i = 0; i < keys.length; i++) {
-            keys[i].disabled = false;
-            keys[i].classList.remove("chosen", "wrong");
-        }
-        const hearts = document.getElementsByClassName("tries");
-        for (let i = 0; i < hearts.length; i++) {
-            hearts[i].firstChild.src = "images/liveHeart.png";
-            hearts[i].firstChild.alt = "Heart Icon";
-        }
+        
+        const keys = Array.from(document.getElementsByClassName('key'));
+        keys.forEach(key => {
+            key.disabled = false;
+            key.classList.remove("chosen", "wrong");
+        });
+
+        const hearts = Array.from(document.getElementsByClassName("tries"));
+        hearts.forEach(heart => {
+            heart.firstChild.src = "images/liveHeart.png";
+            heart.firstChild.alt = "Heart Icon";
+        });
 
         document.getElementById("overlay").style.display = "none";
         this.activePhrase = this.getRandomPhrase();
@@ -52,7 +54,6 @@
                 i++;
             }
         }
-        
         return phraseArray;
     }
 
@@ -78,7 +79,9 @@
         } else {
             button.disabled = true;
             button.classList.add("wrong");
-            this.removeLife();
+            if (this.removeLife()) {
+                this.gameOver(false);
+            }
         }
     }
 
@@ -101,9 +104,7 @@
         const numTries = triesArray.length;
         triesArray[this.missed].firstChild.src = "images/lostHeart.png";
         triesArray[this.missed].firstChild.alt = "Lost Heart Icon";
-        if (++this.missed === numTries) {
-            this.gameOver(this.checkForWin());
-        }
+        return (++this.missed === numTries);
     }
 
     /**
