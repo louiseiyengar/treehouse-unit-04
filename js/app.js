@@ -14,8 +14,8 @@ document.addEventListener("click", (e) => {
 }, false);
 
 document.addEventListener("keyup", (e) => {
-   const keys = Array.from(document.getElementsByClassName("key"));
    if (/^[a-zA-Z ]$/.test(e.key)) {
+      const keys = Array.from(document.getElementsByClassName("key"));
       keys.forEach(key => {
          if ((key.innerText === e.key) && (!key.disabled)) {
             game.handleInteraction(key);

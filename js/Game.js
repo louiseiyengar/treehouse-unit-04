@@ -9,17 +9,24 @@
         this.activePhrase = null;
     }
 
-        /**
+    /**
      * Begins game by selecting a random phrase and displaying it to user 
      */
     startGame() {
         this.activePhrase = null;
+        this.resetGameBoard();
 
+        document.getElementById("overlay").style.display = "none";
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+    }
+
+    resetGameBoard() {
         const phraseUL = document.querySelector("#phrase ul");
         while (phraseUL.firstChild) {
             phraseUL.removeChild(phraseUL.firstChild);
         } 
-        
+
         const keys = Array.from(document.getElementsByClassName('key'));
         keys.forEach(key => {
             key.disabled = false;
@@ -31,10 +38,6 @@
             heart.firstChild.src = "images/liveHeart.png";
             heart.firstChild.alt = "Heart Icon";
         });
-
-        document.getElementById("overlay").style.display = "none";
-        this.activePhrase = this.getRandomPhrase();
-        this.activePhrase.addPhraseToDisplay();
     }
 
     /**
@@ -102,6 +105,7 @@
     removeLife() {
         const triesArray = document.getElementsByClassName("tries");
         const numTries = triesArray.length;
+        
         triesArray[this.missed].firstChild.src = "images/lostHeart.png";
         triesArray[this.missed].firstChild.alt = "Lost Heart Icon";
         return (++this.missed === numTries);
