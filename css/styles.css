@@ -13,6 +13,7 @@
   --color-keys-light: #E5E5E5;
   --font-size-large: 60px;
   --font-size-medium: 20px;
+  --font-weight-title: 700;
   --transition: all .2s ease-in-out;
 }
 
@@ -20,7 +21,8 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Cinzel', serif;
 }
 
 body {
@@ -62,10 +64,14 @@ button {
 
 #btn__reset {
 	width: 200px;
-	margin: 0 auto;
+  margin: 0 auto;
+  font-family: 'Cinzel', serif;
 }
 
 .main-container {
+  background-image: url("../images/paperBackground.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -86,17 +92,18 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  font-family: 'Cinzel', serif;
+  color: #534232;
+  text-shadow: 3px 3px 5px grey;
 }
-
 
 /* Phrase */
 
 .letter {
   font-size: var(--font-size-medium);
-  height: 65px;
-  width: 65px;
-  padding: 20px 1px 0 1px;
+  height: 50px;
+  width: 50px;
+  padding: 15px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
   background: var(--color-neutral-light);
@@ -107,21 +114,23 @@ button {
   width: 15px;
 }
 
-
-
 .show {
   color: #fff;
   background-color: #4ac0d5;
   font-size: 20px;
-  height: 65px;
-  width: 65px;
-  padding: 20px 1px 0 1px;
+  height: 50px;
+  width: 50px;
+  padding: 15px 1px 0 1px;
   margin-right: 2px;
   border-radius: 5px;
   -webkit-animation-duration: .5s;
   animation-duration: .5s;
+  box-shadow: 5px 5px 5px grey;
 }
 
+span.word-span {
+  white-space: nowrap;
+}
 
 /* Keyboard */
 
@@ -131,14 +140,15 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #950740;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #1F2833;
+  text-decoration: line-through;
   color: #FFFFFF;
 }
 
@@ -176,11 +186,18 @@ button {
 }
 
 .title {
-  color: #FFF;
+  font-family: 'Cinzel', serif;
+  color: #534232;
+  text-shadow: 3px 3px 5px grey;
+  font-weight: var(--font-weight-title);
 }
 
 .start {
-  background-color: #3a3f58;
+  background-image: url("../images/paperBackground.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  transition: opacity 2s linear;
 }
 
 .start a {

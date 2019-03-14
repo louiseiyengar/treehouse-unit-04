@@ -15,7 +15,6 @@
     startGame() {
         this.activePhrase = null;
         this.resetGameBoard();
-
         document.getElementById("overlay").style.display = "none";
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
@@ -52,10 +51,10 @@
         while (i < 5) {
             let randomIndex = Math.floor(Math.random() * bookList.length);
             let testPhrase = bookList[randomIndex].book.toLowerCase();
-            if (!phraseArray.includes(testPhrase)) {
+      if (!phraseArray.includes(testPhrase)) {
                 phraseArray.push(testPhrase);
                 i++;
-            }
+           }
         }
         return phraseArray;
     }
