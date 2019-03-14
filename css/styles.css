@@ -116,7 +116,7 @@ button {
 
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #cc9900;
   font-size: 20px;
   height: 50px;
   width: 50px;
@@ -140,7 +140,7 @@ span.word-span {
 }
 
 .chosen {
-  background: #950740;
+  background: #efc383;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
