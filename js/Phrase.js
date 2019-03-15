@@ -27,19 +27,6 @@
             spaceLi.classList.add("space");
             phraseDiv.appendChild(spaceLi);
         });
-
-        // for (let i = 0; i < this.phrase.length; i++) {
-        //     const li = document.createElement("LI");
- 
-        //     if (/\s/.test(this.phrase[i])) {
-        //         li.classList.add("space");
-        //         phraseDiv.appendChild(li);
-        //     } else {
-        //         li.classList.add("hide", "letter", this.phrase[i]);
-        //         li.textContent = this.phrase[i];
-        //         phraseDiv.appendChild(li);
-        //     }
-        // }
     }
 
     checkLetter(letter) {

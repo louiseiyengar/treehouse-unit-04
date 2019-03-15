@@ -8,8 +8,12 @@ document.addEventListener("click", (e) => {
    if (e.target.id && e.target.id === "btn__reset") {
       game = new Game();
       game.startGame();
-   } else if (e.target.className && e.target.className === "key") {
-      game.handleInteraction(e.target);
+   } else if (e.target.className) {
+      if (e.target.className === "key") {
+         game.handleInteraction(e.target);
+      } else if (e.target.className === "hint") {
+         game.handleHint(e.target);
+      }
    }
 }, false);
 

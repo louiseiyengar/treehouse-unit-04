@@ -242,8 +242,20 @@ span.word-span {
 
 #game-over-message div:last-of-type {
   font-size: 0.7em;
-  color: #000;
+  color:var(--color-keys);;
   font-family: 'Roboto', sans-serif;
+}
+
+.hint {
+  border: 1px solid var(--color-neutral-light);
+}
+
+.show-author {
+  cursor: inherit;
+}
+
+.show-author:visited, .show-author:focus {
+  outline: 0;
 }
 
 @keyframes fadein {

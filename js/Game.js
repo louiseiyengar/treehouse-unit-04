@@ -37,6 +37,10 @@
             heart.firstChild.src = "images/liveHeart.png";
             heart.firstChild.alt = "Heart Icon";
         });
+
+        const hintButton = document.getElementsByClassName("hint")[0];
+        hintButton.classList.remove("hidden", "show-author");
+        hintButton.textContent = "See the Author, Lose a Heart";
     }
 
     /**
@@ -107,7 +111,10 @@
         
         triesArray[this.missed].firstChild.src = "images/lostHeart.png";
         triesArray[this.missed].firstChild.alt = "Lost Heart Icon";
-        return (++this.missed === numTries);
+        if (++this.missed === 4) {
+            document.getElementsByClassName("hint")[0].classList.add("hidden");
+        }
+        return (this.missed === numTries);
     }
 
     /**
@@ -136,11 +143,16 @@
 
         if (win) {
             gameOverElement.innerHTML = `<div id='win-message'>${gameWonMessage}</div>`;
-            
         } else {
             gameOverElement.innerHTML = `<div id='lose-message'>${gameLostMessage}</div>`;
         }
         gameOverElement.innerHTML += `<div>${bookMessage}</div>`;
+    }
+
+    handleHint(button) {
+        button.classList.add("show-author");
+        button.innerHTML = this.findAuthor();
+        this.removeLife();
     }
 
     findAuthor() {
