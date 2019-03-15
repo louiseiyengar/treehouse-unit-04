@@ -20,7 +20,7 @@
         this.activePhrase.addPhraseToDisplay();
     }
 
-    resetGameBoard() {
+    resetGameBoard() {  
         const phraseUL = document.querySelector("#phrase ul");
         while (phraseUL.firstChild) {
             phraseUL.removeChild(phraseUL.firstChild);
@@ -115,20 +115,37 @@
     *	@param {boolean} gameWon - Whether or not the user won the game 
     */
     gameOver(gameWon) {
-        const bookList = new Books().list;
-        const author = bookList.filter((book) => book.book.toLowerCase() === this.activePhrase.phrase);
-        const bookMessage = `<em>${this.activePhrase.phrase}</em> by ${author[0].author}`; 
         const gameOverlay = document.getElementById("overlay");
-        const gameOverElement = document.getElementById("game-over-message");
-        
+
         if (gameWon) {
             gameOverlay.classList.add("win");
             document.getElementById("overlay").style.display = "block";
-            gameOverElement.innerHTML = `You have won the game!<br>You correctly guessed:<br>${bookMessage}`;
+            this.createFinishedMessage(true);
         } else {
             gameOverlay.classList.add("lose");
             document.getElementById("overlay").style.display = "block";
-            gameOverElement.innerHTML = `You're guesses are up.<br>The book was:<br>${bookMessage}`;
+            this.createFinishedMessage(false);
         }
+    }
+
+    createFinishedMessage(win) {
+        const bookMessage = `<em>${this.activePhrase.phrase}</em> by ${this.findAuthor()}`; 
+        const gameOverElement = document.getElementById("game-over-message");
+        const gameWonMessage = "You have won the Game!";
+        const gameLostMessage = "Your guesses are up";
+
+        if (win) {
+            gameOverElement.innerHTML = `<div id='win-message'>${gameWonMessage}</div>`;
+            
+        } else {
+            gameOverElement.innerHTML = `<div id='lose-message'>${gameLostMessage}</div>`;
+        }
+        gameOverElement.innerHTML += `<div>${bookMessage}</div>`;
+    }
+
+    findAuthor() {
+        const bookList = new Books().list;
+        const author = bookList.filter((book) => book.book.toLowerCase() === this.activePhrase.phrase);
+        return author[0].author;
     }
  }
