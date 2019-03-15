@@ -51,7 +51,7 @@
         while (i < 5) {
             let randomIndex = Math.floor(Math.random() * bookList.length);
             let testPhrase = bookList[randomIndex].book.toLowerCase();
-      if (!phraseArray.includes(testPhrase)) {
+            if (!phraseArray.includes(testPhrase)) {
                 phraseArray.push(testPhrase);
                 i++;
            }
@@ -115,16 +115,20 @@
     *	@param {boolean} gameWon - Whether or not the user won the game 
     */
     gameOver(gameWon) {
+        const bookList = new Books().list;
+        const author = bookList.filter((book) => book.book.toLowerCase() === this.activePhrase.phrase);
+        const bookMessage = `<em>${this.activePhrase.phrase}</em> by ${author[0].author}`; 
         const gameOverlay = document.getElementById("overlay");
         const gameOverElement = document.getElementById("game-over-message");
+        
         if (gameWon) {
             gameOverlay.classList.add("win");
             document.getElementById("overlay").style.display = "block";
-            gameOverElement.textContent = "You have won the game!";
+            gameOverElement.innerHTML = `You have won the game!<br>You correctly guessed:<br>${bookMessage}`;
         } else {
             gameOverlay.classList.add("lose");
             document.getElementById("overlay").style.display = "block";
-            gameOverElement.textContent = "Sorry! Try again next time.";
+            gameOverElement.innerHTML = `You're guesses are up.<br>The book was:<br>${bookMessage}`;
         }
     }
  }

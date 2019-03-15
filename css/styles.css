@@ -69,15 +69,15 @@ button {
 }
 
 .main-container {
-  background-image: url("../images/paperBackground.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
   max-height: 900px;
   text-align: center;
+  background-image: url("../images/paperBackground-sm1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .section {
@@ -183,7 +183,7 @@ span.word-span {
   left: 0;
   right: 0;
   border-radius: 5px;
-}
+} 
 
 .title {
   font-family: 'Cinzel', serif;
@@ -193,12 +193,13 @@ span.word-span {
 }
 
 .start {
-  background-image: url("../images/paperBackground.jpeg");
+  opacity: 1;
+  background-color: #e8dfd8;
+  z-index: 100;
+  background-image: url("../images/paperBackground-sm1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 1;
-  transition: opacity 2s linear;
-}
+} 
 
 .start a {
   color: #fff;
@@ -222,4 +223,8 @@ span.word-span {
 
 .hidden {
   visibility: hidden;
+}
+
+#game-over-message {
+  color: #bb5f22;
 }
