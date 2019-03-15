@@ -151,6 +151,7 @@
 
     handleHint(button) {
         button.classList.add("show-author");
+        button.classList.remove("hidden");
         button.innerHTML = this.findAuthor();
         this.removeLife();
     }
