@@ -112,7 +112,10 @@
         triesArray[this.missed].firstChild.src = "images/lostHeart.png";
         triesArray[this.missed].firstChild.alt = "Lost Heart Icon";
         if (++this.missed === 4) {
-            document.getElementsByClassName("hint")[0].classList.add("hidden");
+            const hintArea = document.getElementsByClassName("hint")[0];
+            if (document.getElementsByClassName("show-author").length === 0) {
+                hintArea.classList.add("hidden");
+            }
         }
         return (this.missed === numTries);
     }
