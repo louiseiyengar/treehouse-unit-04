@@ -12,4 +12,5 @@ After five wrong guesses, or if you correctly select all the letters in the titl
 
 URL for this project: https://louiseiyengar.github.io/treehouse-unit-04/
 
-Screen shot of Activities section validation:
+Screen shot of Game in action:
+![Unit04Example](https://user-images.githubusercontent.com/42808209/54476607-8ff03100-47d5-11e9-8481-c68ed9abc669.jpg)
