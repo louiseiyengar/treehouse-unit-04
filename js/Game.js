@@ -1,5 +1,6 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
+ * The Book Title Hunter - Word Game
  * Game.js */
 
  class Game {
@@ -10,7 +11,8 @@
     }
 
     /**
-     * Begins game by selecting a random phrase and displaying it to user 
+     * Begins game by selecting a random phrase and displaying it to user. 
+     * Will also call a function to reset the screen to original state from a previous game.
      */
     startGame() {
         this.activePhrase = null;
@@ -20,24 +22,31 @@
         this.activePhrase.addPhraseToDisplay();
     }
 
+    /**
+     * Will reset the screen to original state from a previous game.
+     */
     resetGameBoard() {  
+        //remove the letters from the previous game's book title
         const phraseUL = document.querySelector("#phrase ul");
         while (phraseUL.firstChild) {
             phraseUL.removeChild(phraseUL.firstChild);
         } 
 
+        //reset all the chosen keys on the screen's qwerty key board to unchosen
         const keys = Array.from(document.getElementsByClassName('key'));
         keys.forEach(key => {
             key.disabled = false;
             key.classList.remove("chosen", "wrong");
         });
 
+        //reset all the hearts (tries)
         const hearts = Array.from(document.getElementsByClassName("tries"));
         hearts.forEach(heart => {
             heart.firstChild.src = "images/liveHeart.png";
             heart.firstChild.alt = "Heart Icon";
         });
 
+        //reset the hint button
         const hintButton = document.getElementsByClassName("hint")[0];
         hintButton.classList.remove("hidden", "show-author");
         hintButton.textContent = "See the Author, Lose a Heart";
@@ -45,7 +54,8 @@
 
     /**
     * Creates phrases for use in game
-    * @return {array} An array of phrases that could be used in the game
+    * Instantiates the a book object and randomly chooses 5 titles from an array of book objects
+    * @return {array} An array of 5 book titles that could be used in the game
     */
      createPhrases() {
         const bookList = new Books().list;
@@ -64,7 +74,7 @@
     }
 
     /**
-    * Selects random phrase from phrases property
+    * Selects a random book title from phrases property - an array of 5 book titles
     * @return {Object} Phrase object chosen to be used
     */
     getRandomPhrase() {
@@ -72,8 +82,14 @@
         return new Phrase(newPhrase);
     };
 
+    /**
+     * This will process the letter the user selected, 
+     * display the leeter if it is in the book title, determine if the letter completes the game.
+     * @param {object} button - Letter Button user selected 
+     */
     handleInteraction(button) {
         const letter = button.textContent;
+        //letter is in book title
         if (this.activePhrase.checkLetter(letter)) {
             this.activePhrase.showMatchedLetter(letter);
             if (!this.checkForWin()) {
@@ -82,6 +98,7 @@
             } else {
                 this.gameOver(true);
             }
+        //not in book title
         } else {
             button.disabled = true;
             button.classList.add("wrong");
@@ -138,6 +155,10 @@
         }
     }
 
+    /**
+    *	Creates game over message
+    *	@param {boolean} win - Whether or not the user won the game 
+    */
     createFinishedMessage(win) {
         const bookMessage = `<em>${this.activePhrase.phrase}</em> by ${this.findAuthor()}`; 
         const gameOverElement = document.getElementById("game-over-message");
@@ -152,6 +173,10 @@
         gameOverElement.innerHTML += `<div>${bookMessage}</div>`;
     }
 
+    /**
+    *	Handles 'Show Author' button processing - puts author name in hint button.
+    *	@param {object} button - pass button object when user clicks Author Hint button 
+    */
     handleHint(button) {
         button.classList.add("show-author");
         button.classList.remove("hidden");
@@ -159,6 +184,9 @@
         this.removeLife();
     }
 
+    /**
+    *	Gets author for current book title (activePhrase) from Book class array
+    */
     findAuthor() {
         const bookList = new Books().list;
         const author = bookList.filter((book) => book.book.toLowerCase() === this.activePhrase.phrase);

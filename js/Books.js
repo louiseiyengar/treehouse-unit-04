@@ -1,3 +1,8 @@
+/* Treehouse FSJS Techdegree
+ * Project 4 - OOP Game App
+ * The Book Title Hunter - Word Game
+ * Books.js */
+
 class Books {
     constructor () {
         this.list = [
@@ -59,7 +64,43 @@ class Books {
             book: "Song of Solomon"},
 
             {author: "H. G. Wells",
-            book: "The War of the Worlds"}
+            book: "The War of the Worlds"},
+
+            {author: "J. D. Salinger",
+            book: "The Catcher in the Rye"},
+
+            {book: "The Lord of the Rings",
+             author: "J. R. R. Tolkien"},
+
+            {author: "Sandra Cisneros",
+            book: "The House on Mango Street"},
+
+            {author: "Nathaniel Hawthorne",
+            book: "The House of the Seven Gables"},
+            
+            {author: "Nathaniel Hawthorne",
+            book: "The Scarlet Letter"},
+                        
+            {author: "Henry David Thoreau",
+            book: "Walden"},
+
+            {author: "Robert Louis Stevenson",
+            book: "Treasure Island"},
+
+            {author: "J. K. Rowling",
+            book: "Harry Potter and the Goblet of Fire"},
+
+            {author: "Tennessee Williams",
+            book: "A Streetcar Named Desire"},
+
+            {author: "Tennessee Williams",
+            book: "Cat on a Hot Tin Roof"},
+
+            {author: "William Shakespeare",
+            book: "Twelfth Night"},
+
+            {author: "Emily Bronte",
+            book: "Wuthering Heights"},
         ]
     }   
 }

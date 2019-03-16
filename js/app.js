@@ -1,9 +1,8 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
- * app.js */
+ * The Book Title Hunter - Word Game */
 
 document.addEventListener('DOMContentLoaded', () => {
-
    var game = null;
 
    document.addEventListener("click", (e) => {
