@@ -103,7 +103,10 @@ class Books {
             book: "Wuthering Heights"},
 
             {author: "Oscar Wilde",
-            book: "The Picture of Dorian Gray"}
+            book: "The Picture of Dorian Gray"},
+
+            {author: "Betty Smith",
+            book: "A Tree Grows in Brooklyn"}
         ]
     }   
 }
