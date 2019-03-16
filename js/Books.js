@@ -101,6 +101,9 @@ class Books {
 
             {author: "Emily Bronte",
             book: "Wuthering Heights"},
+
+            {author: "Oscar Wilde",
+            book: "The Picture of Dorian Gray"}
         ]
     }   
 }

@@ -17,7 +17,7 @@
 
         phraseArray.forEach(word => {
             //Don't want words to be word-wrapped(split on different lines), 
-            //so add span around each word li's
+            //so add span around each word li's and no-wrap the white space on the span.
             const wordSpan = document.createElement("SPAN");
             wordSpan.classList.add("word-span");
             phraseDiv.appendChild(wordSpan);

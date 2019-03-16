@@ -4,14 +4,13 @@
 /* Variables */
 
 :root {
-  --color-start: #5b85b7;
   --color-neutral: #445069;
   --color-neutral-light: #D2D2D2;
   --color-keys: #37474F;
   --color-keys-light: #E5E5E5;
   --font-size-large: 60px;
   --font-size-medium: 20px;
-  --font-weight-title: 700;
+  --font-weight-medium: 700;
   --transition: all .2s ease-in-out;
 }
 
@@ -19,7 +18,6 @@
 
 * {
   box-sizing: border-box;
-  /* font-family: 'Montserrat', sans-serif; */
   font-family: 'Cinzel', serif;
 }
 
@@ -85,6 +83,10 @@ button {
 
 #phrase ul li{
   margin-top: 15px;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 /* Title */
@@ -167,6 +169,18 @@ span.word-span {
   border-right: solid 3px rgba(0, 0, 0, 0);
 }
 
+/* Hint Button */
+.hint {
+  border: 1px solid var(--color-neutral-light);
+}
+
+.show-author {
+  cursor: inherit;
+}
+
+.show-author:visited, .show-author:focus {
+  outline: 0;
+}
 
 /* Overlay */
 
@@ -187,7 +201,7 @@ span.word-span {
   font-family: 'Cinzel', serif;
   color: #534232;
   text-shadow: 3px 3px 5px grey;
-  font-weight: var(--font-weight-title);
+  font-weight: var(--font-weight-medium);
 }
 
 .start {
@@ -198,29 +212,7 @@ span.word-span {
   background-size: cover;
 } 
 
-/* .start a {
-  color: #fff;
-}
-
-.win {
-  background-color: var(--color-win);
-}
-
-.win a {
-  color: var(--color-win);
-}
-
-.lose {
-  background-color: #f5785f;
-}
-
-.lose a {
-  color: var(--color-lose);
-} */
-
-.hidden {
-  visibility: hidden;
-}
+/* Overlay for Final Screen - Game Over */
 
 #game-over-message {
   color: #811709;
@@ -244,18 +236,7 @@ span.word-span {
   font-family: 'Roboto', sans-serif;
 }
 
-.hint {
-  border: 1px solid var(--color-neutral-light);
-}
-
-.show-author {
-  cursor: inherit;
-}
-
-.show-author:visited, .show-author:focus {
-  outline: 0;
-}
-
+/* animation techniques found on https://daneden.github.io/animate.css */
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
