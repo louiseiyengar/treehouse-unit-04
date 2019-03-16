@@ -12,5 +12,5 @@ After five wrong guesses, or if you correctly select all the letters in the titl
 
 URL for this project: https://louiseiyengar.github.io/treehouse-unit-04/
 
-Screen shot of Game in action:
-![Unit04Example](https://user-images.githubusercontent.com/42808209/54476607-8ff03100-47d5-11e9-8481-c68ed9abc669.jpg)
+Screen shot of the game:
+![Unit04Example](https://user-images.githubusercontent.com/42808209/54476643-1573e100-47d6-11e9-85a8-80ea65420f18.jpg)
