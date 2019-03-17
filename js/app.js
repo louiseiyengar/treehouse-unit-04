@@ -24,11 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
    //Handle typing a letter on a keyboard 
    document.addEventListener("keyup", (e) => {
-      if (/^[a-zA-Z ]$/.test(e.key)) {
-         const keys = Array.from(document.getElementsByClassName("key"));
-         key = keys.filter(key => ((key.innerText === e.key) && (!key.disabled)));
-         if (key.length === 1) { game.handleInteraction(key[0]); }
+      //need to ensure we are viewing the phrase and keyboard screen
+      if (document.getElementById("overlay").style.display === "none") {
+         if (/^[a-zA-Z ]$/.test(e.key)) {
+            const keys = Array.from(document.getElementsByClassName("key"));
+            key = keys.filter(key => ((key.innerText === e.key) && (!key.disabled)));
+            if (key.length === 1) { game.handleInteraction(key[0]); }
+         }
       }
    }, false);
-
 });
